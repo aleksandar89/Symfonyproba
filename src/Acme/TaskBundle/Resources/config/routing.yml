@@ -1,3 +1,7 @@
 acme_form_homepage:
     pattern:  /form/
     defaults: { _controller: AcmeTaskBundle:Default:new }
+
+acme_build_page:
+    pattern:  /autobuild/
+    defaults: { _controller: AcmeTaskBundle:Default:build }
