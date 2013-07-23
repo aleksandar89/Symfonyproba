@@ -10,22 +10,19 @@ class TaskType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('task')
-                ->add('dueDate', null, array('widget' => 'single_text'))
-                ->add('save', 'submit');
-        
-         $builder->add('category', new CategoryType());
+        $builder->add('description');
+
+        $builder->add('tags', 'collection', array('type' => new TagType()));
+           
     }
- 
-    public function setDefaultOptions(\Symfony\Component\OptionsResolver\OptionsResolverInterface $resolver) {
-      // parent::setDefaultOptions($resolver);
-       $resolver->setDefaults(array(
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
             'data_class' => 'Acme\TaskBundle\Entity\Task',
-            'cascade_validation' => true,
         ));
-        
     }
-   
+
     public function getName()
     {
         return 'task';

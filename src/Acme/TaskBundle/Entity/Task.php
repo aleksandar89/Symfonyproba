@@ -6,7 +6,17 @@ class Task
 {
     protected $task;
     protected $dueDate;
-    
+    protected $category;
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setCategory(Category $category = null)
+    {
+        $this->category = $category;
+    }
     public function getTask()
     {
         return $this->task;
